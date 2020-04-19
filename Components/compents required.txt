@@ -1,0 +1,9 @@
+Collect the following Components
+ 
+1.Laptop
+2.2 Arduino Uno
+3.2 Breadboard
+4.1 LED
+5.1 LDR
+6.Connecting Wires
+7.220-ohm Resistor(optional)

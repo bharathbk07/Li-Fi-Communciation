@@ -1,0 +1,396 @@
+/*
+This code is used to recive the binary digit and then it conert it again to Text message 
+This code is created by 
+Bharath Kumar
+*/
+
+long  int value;
+int newline=0,line,result;
+int sensorValue=0;
+int a,b,c,d,e,f,g,h;
+int sensorValue1 = 0;
+int sensorValue2 = 0;
+int sensorValue3 = 0;
+int sensorValue4 = 0;
+int sensorValue5 = 0;
+int sensorValue6 = 0;
+int sensorValue7 = 0;
+int sensorValue8 = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+
+void loop()
+{
+  delay(1010);
+  sensorValue = analogRead(A0);
+ // Serial.println(sensorValue);//sensorvalue from here
+  if(sensorValue<800)//change the value according to sensorvalue
+   {
+    value=1;
+    newline+=1;
+   }
+   if(sensorValue>800)
+   {
+    value=0;
+    newline+=1;
+   }
+   //Serial.print(value);
+  if(newline==1)//for a
+  {
+    if(value==1)
+    {
+      a=true;
+      
+    }
+    else
+    {
+      a=false;
+    }
+  }
+
+  if(newline==2)//for b
+  {
+    if(value==1)
+    {
+      b=true;
+      
+    }
+    else
+    {
+      b=false;
+    }
+  }
+
+  if(newline==3)//for c
+  {
+    if(value==1)
+    {
+      c=true;
+      
+    }
+    else
+    {
+      c=false;
+    }
+  }
+
+  if(newline==4)//for d
+  {
+    if(value==1)
+    {
+      d=true;
+      
+    }
+    else
+    {
+      d=false;
+    }
+  }
+
+  if(newline==5)//for e
+  {
+    if(value==1)
+    {
+      e=true;
+     
+    }
+    else
+    {
+      e=false;
+    }
+  }
+    
+  if(newline==6)//for f
+  {
+    if(value==1)
+    {
+      f=true;
+      
+    }
+    else
+    {
+      f=false;
+    }
+  }
+
+  if(newline==7)//for g
+  {
+    if(value==1)
+    {
+      g=true;
+      
+    }
+    else
+    {
+      g=false;
+    }
+  }
+  if(newline==8)//for h
+  {
+    if(value==1)
+    {
+      h=true;
+      
+    }
+    else
+    {
+      h=false;
+    }
+  }
+   
+  
+  
+  
+  line=newline/8;
+   if(line==1)
+   {
+    /*Serial.print(a);
+    Serial.print(b);
+    Serial.print(c);
+    Serial.print(d);
+    Serial.print(e);
+    Serial.print(f);
+    Serial.print(g);
+    Serial.print(h);*/
+    LightFlash(a,b,c,d,e,f,g,h);
+    //Serial.println(" ");
+    newline=0;
+   
+   }
+}
+
+
+   void LightFlash(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f, boolean g,boolean  h){
+    
+  if (a == true){
+    sensorValue1=1;
+  }else
+  {
+    sensorValue1=0;
+  }
+  
+  if (b == true){
+    sensorValue2=1;
+  }
+  else
+  {
+    sensorValue2=0;
+  }
+   
+  if (c == true){
+    sensorValue3=1;
+  }else
+  {
+    sensorValue3=0;
+  }
+ 
+  if (d == true){
+    sensorValue4=1;
+  }
+  else{
+    sensorValue4=0;
+  }
+  if (e == true){
+    sensorValue5=1;
+  }
+  else
+  {
+    sensorValue5=0;
+  }
+ 
+  if (f == true){
+    sensorValue6=1;
+  }else
+  {
+    sensorValue6=0;
+  }
+  
+  if (g == true){
+    sensorValue7=1;
+  }
+  else
+  {
+    sensorValue7=0;
+  }
+
+   if (h == true){
+    sensorValue8=1;
+  }
+  else
+  {
+    sensorValue8=0;
+  }
+    /*Serial.print(sensorValue1);
+    Serial.print(sensorValue2);
+    Serial.print(sensorValue3);
+    Serial.print(sensorValue4);
+    Serial.print(sensorValue5);
+    Serial.print(sensorValue6); 
+    Serial.print(sensorValue7);
+    Serial.print(sensorValue8);*/
+  long int result = 0;
+  
+  result =10000000*sensorValue1 +1000000*sensorValue2 + 100000*sensorValue3 + 10000*sensorValue4 + 1000*sensorValue5 + 100*sensorValue6 + 10*sensorValue7 + 1*sensorValue8;
+  
+  
+  //Serial.println(" Result");
+ // Serial.print("Message:");
+  PrintChar(result);
+}
+
+
+void PrintChar(long int input)
+{
+  //Serial.print("Message for Value:");
+ //Serial.println(input);
+ if (input==1000001){
+    Serial.print("A");}
+if (input==1000010){
+      Serial.print("B");} 
+if(input==1000011){
+      Serial.print("C");}
+if(input==1000100){
+      Serial.print("D");}
+if(input==1000101){
+        Serial.print("E");}
+if (input==1000110){
+      Serial.print("F");}
+if (input==1000111){
+        Serial.print("G");}
+if (input==1001000){
+      Serial.print("H"); }
+if(input==1001001){
+        Serial.print("I");}
+if(input==1001010){
+        Serial.print("J");}
+//if(input==1001011);{//Solve this problem ounce done programming for some reson this line made the program just make the serial monitor display k a lot
+       // Serial.print("K");}
+if(input==1001100){
+        Serial.print("L");}
+if(input==1001101){
+            Serial.print("M");}
+if(input==1001110){
+            Serial.print("N");}              
+if(input==1001111){
+            Serial.print("O");}
+if(input==1010000){
+            Serial.print("P");}
+if(input==1010001){
+            Serial.print("Q");}
+if(input==1010010){
+            Serial.print("R");}
+if(input==1010011){
+            Serial.print("S");}
+if(input==1010100){
+            Serial.print("T");}
+if(input==1010101){
+            Serial.print("U");}     
+if(input==1010110){
+            Serial.print("V");} 
+if(input==1010111){
+           Serial.print("W");}
+if (input==1001001){
+          Serial.print("X");}
+if (input==1011001){
+          Serial.print("Y");} 
+if (input==1011010){
+Serial.print("Z");}
+
+
+
+if (input==100000){//space
+Serial.print("_");}
+
+if (input==11111111){//space
+Serial.print("Invalid");}
+
+
+
+
+if (input==1100001){
+    Serial.print("a");}
+if (input==1100010){
+      Serial.print("b");} 
+if(input==1100011){
+      Serial.print("c");}
+if(input==1100100){
+      Serial.print("d");}
+if(input==1100101){
+        Serial.print("e");}
+if (input==1100110){
+      Serial.print("f");}
+if (input==1100111){
+        Serial.print("g");}
+if (input==1101000){
+      Serial.print("h"); }
+if(input==1101001){
+        Serial.print("i");}
+if(input==1101010){
+        Serial.print("j");}
+//if(input==1101011  );{//Solve this problem ounce done programming for some reson this line made the program just make the serial monitor display k a lot
+       // Serial.print("k");}
+if(input==1101100){
+        Serial.print("l");}
+if(input==1101101){
+            Serial.print("m");}
+if(input==1101110){
+            Serial.print("n");}              
+if(input==1101111){
+            Serial.print("o");}
+if(input==1110000){
+            Serial.print("p");}
+if(input==1110001){
+            Serial.print("q");}
+if(input==1110010){
+            Serial.print("r");}
+if(input==1110011){
+            Serial.print("s");}
+if(input==1110100){
+            Serial.print("t");}
+if(input==1110101){
+            Serial.print("u");}     
+if(input==1110110){
+            Serial.print("v");} 
+if(input==1110111){
+           Serial.print("w");}
+if (input==1111000){
+          Serial.print("x");}
+if (input==1111001){
+          Serial.print("y");} 
+if (input==1111010){
+Serial.print("z");}
+
+
+
+
+
+if(input==110000){
+Serial.print("0");}
+if(input==110001){
+Serial.print("1");}
+if(input==110010){
+Serial.print("2");}
+if(input==110011){
+Serial.print("3");}
+if(input==110100){
+Serial.print("4");}
+if(input==110101){
+Serial.print("5");}
+if(input==110110){
+Serial.print("6");}
+if(input==110111){
+Serial.print("7");}
+if(input==111000){
+Serial.print("8");}
+if(input==111001){
+Serial.print("9");}
+
+ 
+  }
+
+ 
+  

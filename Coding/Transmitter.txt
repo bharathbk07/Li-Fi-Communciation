@@ -1,0 +1,50 @@
+/*
+This code is used to transfer the text message in binary 
+This code is created by 
+Bharath Kumar
+
+*/
+
+
+int transmitter=1;
+void setup() 
+{
+Serial.begin(9600);
+pinMode(10,OUTPUT);
+
+}
+void loop()
+{
+  if(transmitter==1)
+  {
+   String myText = "Hello World";// Enter the desired word
+
+  for(int i=0; i<myText.length(); i++)
+  {
+
+   char myChar = myText.charAt(i);
+ 
+    for(int i=7; i>=0; i--)
+    {
+      byte bytes = bitRead(myChar,i);
+      Serial.print(bytes, BIN);
+      //delay(1010);
+      if(bytes==1)
+      {
+        digitalWrite(10,HIGH);
+        delay(1010);
+      }
+      else
+      {
+        digitalWrite(10,LOW);
+        delay(1010);
+      }
+    }
+
+    Serial.println("");
+   // delay(1010);
+}
+
+  }
+  transmitter=0;
+}
